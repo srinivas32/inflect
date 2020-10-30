@@ -20,7 +20,32 @@ matrix:
       - GO111MODULE=on
   allow_failures:
     - go: "tip"
-
+    # added power support ppc64le arch.
+    
+  - go: "1.9.x"
+    arch: ppc64le
+  - go: "1.10.x"
+    arch: ppc64le
+  - go: "1.11.x"
+    arch: ppc64le
+    env:
+      - GO111MODULE=off
+      
+  - go: "1.11.x"
+    arch: ppc64le
+    env:
+      - GO111MODULE=on
+  - go: "tip"
+    arch: ppc64le
+    env:
+      - GO111MODULE=off
+  - go: "tip"
+    arch: ppc64le
+    env:
+      - GO111MODULE=on
+  allow_failures:
+    - go: "tip"
+      arch: ppc64le
 install: make deps
 
 script: make ci-test
